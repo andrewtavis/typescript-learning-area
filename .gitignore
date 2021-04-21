@@ -1,1 +1,7 @@
+# OS files
+##########
 .DS_Store
+
+# Display files
+###############
+*.sketch
