@@ -9,8 +9,6 @@
 
 ### TypeScript versions of the MDN JavaScript examples
 
-**typescript-learning-area** is a GitHub repo with [TypeScript](https://www.typescriptlang.org/) examples based on the [MDN Learning Area](https://developer.mozilla.org/en-US/Learn). It is clone of the JavaScript directory of [mdn/learning-area](https://github.com/mdn/learning-area) with all JS converted to error free TS, and all solutions modularized with script directories and [Sass](https://sass-lang.com/) based styling. The goal is to provide a reference that allows people to also learn TypeScript at MDN.
+**typescript-learning-area** is a GitHub repo with [TypeScript](https://www.typescriptlang.org/) examples based on the [MDN Learning Area](https://developer.mozilla.org/en-US/Learn). The [typescript directory](https://github.com/andrewtavis/typescript-learning-area/tree/main/typescript) is a clone of the examples in the [javascript directory](https://github.com/mdn/learning-area/tree/master/javascript) of [mdn/learning-area](https://github.com/mdn/learning-area) with JS converted to error free TS, and all solutions modularized with script directories and [Sass](https://sass-lang.com/) based styling. The goal is to provide a reference that allows people to also learn TypeScript at MDN.
 
-The directories in this repo match the module structure of the articles and original repo.
-
-Contributions to improve the TypeScript are welcome!
+Contributions to improve the TypeScript are welcome! Adding examples would also be helpful. New examples could include conversions of other MDN JS examples (the output should be the same), as well as modified or novel examples that demonstrate TS features.
