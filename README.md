@@ -4,7 +4,7 @@
 
 --------------------------------------
 
-[![license](https://img.shields.io/github/license/andrewtavis/typescript-learning-area.svg)](https://github.com/andrewtavis/typescript-learning-area/blob/main/LICENSE.txt)
+[![license](https://img.shields.io/github/license/andrewtavis/typescript-learning-area)](https://github.com/andrewtavis/typescript-learning-area/blob/main/LICENSE.txt)
 [![coc](https://img.shields.io/badge/coc-Contributor%20Covenant-ff69b4.svg)](https://github.com/andrewtavis/typescript-learning-area/blob/main/.github/CODE_OF_CONDUCT.md)
 
 ### TypeScript versions of the MDN JavaScript examples
