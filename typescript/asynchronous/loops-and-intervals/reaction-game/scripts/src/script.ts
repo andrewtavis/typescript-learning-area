@@ -1,8 +1,8 @@
 const spinner = document.querySelector(".spinner p");
 const spinnerContainer = document.querySelector(".spinner");
 let rotateCount = 0;
-let startTime: any = null;
-let rAF: any;
+let startTime: number | null = null;
+let rAF: number;
 const btn = document.querySelector("button");
 const result = document.querySelector(".result");
 
@@ -16,7 +16,11 @@ function draw(timestamp: any) {
     startTime = timestamp;
   }
 
-  rotateCount = (timestamp - startTime) / 3;
+  if (startTime === null) {
+    alert("Invalid");
+  } else {
+    rotateCount = (timestamp - startTime) / 3;
+  }
 
   rotateCount %= 360;
 

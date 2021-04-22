@@ -138,7 +138,7 @@ window.onload = function (): void {
   };
 
   // Setup the database tables if this has not already been done
-  request.onupgradeneeded = function (e: IDBVersionChangeEvent) {
+  request.onupgradeneeded = function (e) {
     // Grab a reference to the opened database
     let db = e.target.result;
 

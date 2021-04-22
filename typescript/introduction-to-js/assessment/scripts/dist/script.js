@@ -2,6 +2,7 @@
 var customName = document.getElementById("customname");
 var randomize = document.querySelector(".randomize");
 var story = document.querySelector(".story");
+var engType = document.getElementById("uk");
 function randomValueFromArray(array) {
     var random = Math.floor(Math.random() * array.length);
     return array[random];
@@ -28,7 +29,7 @@ function result() {
         var name_1 = customName.value;
         newStory = newStory.replace("Bob", name_1);
     }
-    if (document.getElementById("uk").checked) {
+    if (engType.checked) {
         var weight = Math.round(300 / 14).toString() + " stone";
         var temperature = Math.round(((94 - 32) * 5) / 9).toString() + " centigrade";
         newStory = newStory.replace("300 pounds", weight);

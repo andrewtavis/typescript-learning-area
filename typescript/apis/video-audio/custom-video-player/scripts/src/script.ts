@@ -1,12 +1,12 @@
-const media = document.querySelector("video");
-const controls = document.querySelector(".controls");
+const media = document.querySelector("video") as HTMLVideoElement;
+const controls = document.querySelector(".controls") as HTMLDivElement;
 
-const play = document.querySelector(".play");
-const stop = document.querySelector(".stop");
-const rwd = document.querySelector(".rwd");
-const fwd = document.querySelector(".fwd");
+const play = document.querySelector(".play") as HTMLButtonElement;
+const stop = document.querySelector(".stop") as HTMLButtonElement;
+const rwd = document.querySelector(".rwd") as HTMLButtonElement;
+const fwd = document.querySelector(".fwd") as HTMLButtonElement;
 
-const timerWrapper = document.querySelector(".timer");
+const timerWrapper = document.querySelector(".timer") as HTMLDivElement;
 const timer = document.querySelector(".timer span");
 const timerBar = document.querySelector(".timer div");
 
@@ -47,8 +47,8 @@ function stopMedia() {
 rwd.addEventListener("click", mediaBackward);
 fwd.addEventListener("click", mediaForward);
 
-let intervalFwd;
-let intervalRwd;
+let intervalFwd: number | undefined;
+let intervalRwd: number | undefined;
 
 function mediaBackward() {
   clearInterval(intervalFwd);
@@ -103,27 +103,27 @@ function windForward() {
 media.addEventListener("timeupdate", setTime);
 
 function setTime() {
-  let minutes = Math.floor(media.currentTime / 60);
-  let seconds = Math.floor(media.currentTime - minutes * 60);
-  let minuteValue;
-  let secondValue;
+  let minutes: number = Math.floor(media.currentTime / 60);
+  let seconds: number = Math.floor(media.currentTime - minutes * 60);
+  let minuteValue: string;
+  let secondValue: string;
 
   if (minutes < 10) {
-    minuteValue = "0" + minutes;
+    minuteValue = "0" + String(minutes);
   } else {
-    minuteValue = minutes;
+    minuteValue = String(minutes);
   }
 
   if (seconds < 10) {
     secondValue = "0" + seconds;
   } else {
-    secondValue = seconds;
+    secondValue = String(seconds);
   }
 
-  let mediaTime = minuteValue + ":" + secondValue;
+  let mediaTime: string = minuteValue + ":" + secondValue;
   timer.textContent = mediaTime;
 
-  let barLength =
+  let barLength: number =
     timerWrapper.clientWidth * (media.currentTime / media.duration);
   timerBar.style.width = barLength + "px";
 }

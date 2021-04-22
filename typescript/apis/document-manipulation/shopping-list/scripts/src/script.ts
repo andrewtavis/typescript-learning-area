@@ -1,6 +1,6 @@
-const shoppingList = document.querySelector("ul");
-const input = document.querySelector("input");
-const button = document.querySelector("button");
+const shoppingList = document.querySelector("ul") as HTMLUListElement;
+const input = document.querySelector("input") as HTMLInputElement;
+const button = document.querySelector("button") as HTMLButtonElement;
 
 button.onclick = function () {
   let currentInput = input.value;

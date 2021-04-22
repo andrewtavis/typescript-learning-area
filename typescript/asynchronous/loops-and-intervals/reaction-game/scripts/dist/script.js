@@ -14,7 +14,12 @@ function draw(timestamp) {
     if (!startTime) {
         startTime = timestamp;
     }
-    rotateCount = (timestamp - startTime) / 3;
+    if (startTime === null) {
+        alert("Invalid");
+    }
+    else {
+        rotateCount = (timestamp - startTime) / 3;
+    }
     rotateCount %= 360;
     if (spinner === null) {
         alert("Invalid");

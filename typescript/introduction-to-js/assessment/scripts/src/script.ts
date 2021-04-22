@@ -1,20 +1,21 @@
-const customName = document.getElementById("customname");
-const randomize = document.querySelector(".randomize");
-const story = document.querySelector(".story");
+const customName = document.getElementById("customname") as HTMLInputElement;
+const randomize = document.querySelector(".randomize") as HTMLButtonElement;
+const story = document.querySelector(".story") as HTMLParagraphElement;
+let engType = document.getElementById("uk") as HTMLInputElement;
 
 function randomValueFromArray(array: any) {
-  const random = Math.floor(Math.random() * array.length);
+  const random: number = Math.floor(Math.random() * array.length);
   return array[random];
 }
 
 let storyText: string =
   "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
 
-let insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+let insertX: string[] = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
 
-let insertY = ["the soup kitchen", "Disneyland", "the White House"];
+let insertY: string[] = ["the soup kitchen", "Disneyland", "the White House"];
 
-let insertZ = [
+let insertZ: string[] = [
   "spontaneously combusted",
   "melted into a puddle on the sidewalk",
   "turned into a slug and crawled away",
@@ -23,11 +24,11 @@ let insertZ = [
 randomize.addEventListener("click", result);
 
 function result() {
-  let newStory = storyText;
+  let newStory: string = storyText;
 
-  let xItem = randomValueFromArray(insertX);
-  let yItem = randomValueFromArray(insertY);
-  let zItem = randomValueFromArray(insertZ);
+  let xItem: string = randomValueFromArray(insertX);
+  let yItem: string = randomValueFromArray(insertY);
+  let zItem: string = randomValueFromArray(insertZ);
 
   newStory = newStory.replace(":insertx:", xItem);
   newStory = newStory.replace(":insertx:", xItem);
@@ -39,7 +40,7 @@ function result() {
     newStory = newStory.replace("Bob", name);
   }
 
-  if (document.getElementById("uk").checked) {
+  if (engType.checked) {
     let weight = Math.round(300 / 14).toString() + " stone";
     let temperature =
       Math.round(((94 - 32) * 5) / 9).toString() + " centigrade";

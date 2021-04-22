@@ -15,7 +15,9 @@ window.onload = function () {
     function init() {
         var _loop_1 = function (i) {
             // Open transaction, get object store, and get() each video by name
-            var objectStore = db.transaction("videos").objectStore("videos");
+            var objectStore = db
+                .transaction("videos")
+                .objectStore("videos");
             var request_1 = objectStore.get(videos[i].name);
             request_1.onsuccess = function () {
                 // If the result exists in the database (is not undefined)
@@ -40,12 +42,8 @@ window.onload = function () {
         console.log("fetching videos from network");
         // Fetch the MP4 and WebM versions of the video using the fetch() function,
         // then expose their response bodies as blobs
-        var mp4Blob = fetch("videos/" + video.name + ".mp4").then(function (response) {
-            return response.blob();
-        });
-        var webmBlob = fetch("videos/" + video.name + ".webm").then(function (response) {
-            return response.blob();
-        });
+        var mp4Blob = fetch("videos/" + video.name + ".mp4").then(function (response) { return response.blob(); });
+        var webmBlob = fetch("videos/" + video.name + ".webm").then(function (response) { return response.blob(); });
         // Only run the next code when both promises have fulfilled
         Promise.all([mp4Blob, webmBlob]).then(function (values) {
             // display the video fetched from the network with displayVideo()
@@ -108,7 +106,7 @@ window.onload = function () {
     };
     // onsuccess handler signifies that the database opened successfully
     request.onsuccess = function () {
-        console.log("Database opened succesfully");
+        console.log("Database opened successfully");
         // Store the opened database object in the db variable. This is used a lot below
         db = request.result;
         init();
@@ -116,10 +114,17 @@ window.onload = function () {
     // Setup the database tables if this has not already been done
     request.onupgradeneeded = function (e) {
         // Grab a reference to the opened database
-        var db = e.target.result;
+        if (e.target === null) {
+            alert("Invalid");
+        }
+        else {
+            var db_1 = e.target.result;
+        }
         // Create an objectStore to store our notes in (basically like a single table)
         // including a auto-incrementing key
-        var objectStore = db.createObjectStore("videos", { keyPath: "name" });
+        var objectStore = db.createObjectStore("videos", {
+            keyPath: "name",
+        });
         // Define what data items the objectStore will contain
         objectStore.createIndex("mp4", "mp4", { unique: false });
         objectStore.createIndex("webm", "webm", { unique: false });

@@ -7,7 +7,7 @@ let promise2: Promise<Blob> = promise.then((response: Response) => {
   }
 });
 
-let promise3 = promise2.then((myBlob: any) => {
+let promise3 = promise2.then((myBlob: Blob) => {
   let objectURL = URL.createObjectURL(myBlob);
   let image = document.createElement("img");
   image.src = objectURL;

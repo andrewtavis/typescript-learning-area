@@ -41,9 +41,15 @@ function fetchAndDecode(url, type) {
 }
 */
 
-let coffee = fetchAndDecode("images/coffee.jpg", "blob");
-let tea = fetchAndDecode("images/tea.jpg", "blob");
-let description = fetchAndDecode("description.txt", "text");
+let coffee: Promise<void | Response> = fetchAndDecode(
+  "images/coffee.jpg",
+  "blob"
+);
+let tea: Promise<void | Response> = fetchAndDecode("images/tea.jpg", "blob");
+let description: Promise<void | Response> = fetchAndDecode(
+  "description.txt",
+  "text"
+);
 
 Promise.all([coffee, tea, description]).then((values: any) => {
   console.log(values);

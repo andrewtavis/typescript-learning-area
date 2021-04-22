@@ -8,23 +8,9 @@
         margin: 10px;
       }
     </style>
+    <script src="scripts/dist/script.js" defer></script>
   </head>
   <body>
     <button>Change color</button>
-    <script>
-      const btn = document.querySelector("button");
-
-      function random(number) {
-        return Math.floor(Math.random() * number);
-      }
-
-      function bgChange() {
-        const rndCol =
-          "rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
-        document.body.style.backgroundColor = rndCol;
-      }
-
-      btn.onmouseover = bgChange;
-    </script>
   </body>
 </html>

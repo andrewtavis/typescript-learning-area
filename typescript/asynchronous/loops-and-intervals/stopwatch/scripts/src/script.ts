@@ -3,14 +3,14 @@ let secondCount = 0;
 // Define a global to store the interval when it is active.
 let stopWatch: any;
 // Store a reference to the display paragraph in a variable
-const displayPara = document.querySelector(".clock");
+const displayPara = document.querySelector(".clock") as HTMLParagraphElement;
 
 // Function to calculate the current hours, minutes, and seconds, and display the count
 function displayCount() {
   // Calculate current hours, minutes, and seconds
-  let hours = Math.floor(secondCount / 3600);
-  let minutes = Math.floor((secondCount % 3600) / 60);
-  let seconds = Math.floor(secondCount % 60);
+  let hours: number = Math.floor(secondCount / 3600);
+  let minutes: number = Math.floor((secondCount % 3600) / 60);
+  let seconds: number = Math.floor(secondCount % 60);
 
   // Display a leading zero if the values are less than ten
   let displayHours = hours < 10 ? "0" + hours : hours;
@@ -30,9 +30,9 @@ function displayCount() {
 }
 
 // Store references to the buttons in constants
-const startBtn = document.querySelector(".start");
-const stopBtn = document.querySelector(".stop");
-const resetBtn = document.querySelector(".reset");
+const startBtn = document.querySelector(".start") as HTMLButtonElement;
+const stopBtn = document.querySelector(".stop") as HTMLButtonElement;
+const resetBtn = document.querySelector(".reset") as HTMLButtonElement;
 
 // When the start button is pressed, start running displayCount() once per second using setInterval()
 if (startBtn === null) {

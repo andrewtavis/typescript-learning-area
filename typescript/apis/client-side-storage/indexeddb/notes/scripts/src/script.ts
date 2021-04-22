@@ -1,12 +1,12 @@
 // Create needed constants
-const list = document.querySelector("ul");
-const titleInput = document.querySelector("#title");
-const bodyInput = document.querySelector("#body");
-const form = document.querySelector("form");
-const submitBtn = document.querySelector("form button");
+const list = document.querySelector("ul") as HTMLUListElement;
+const titleInput = <HTMLInputElement>document.querySelector("#title");
+const bodyInput = <HTMLInputElement>document.querySelector("#body");
+const form = document.querySelector("form") as HTMLFormElement;
+const submitBtn = <HTMLInputElement>document.querySelector("form button");
 
 // Create an instance of a db object for us to store the open database in
-let db;
+let db: IDBDatabase;
 
 window.onload = function () {
   // Open our database; it is created if it doesn't already exist
@@ -51,7 +51,7 @@ window.onload = function () {
   form.onsubmit = addData;
 
   // Define the addData() function
-  function addData(e) {
+  function addData(e: { preventDefault: () => void }) {
     // prevent default - we don't want the form to submit in the conventional way
     e.preventDefault();
 
@@ -145,7 +145,14 @@ window.onload = function () {
   }
 
   // Define the deleteItem() function
-  function deleteItem(e) {
+  function deleteItem(e: {
+    target: {
+      parentNode: {
+        getAttribute: (arg0: string) => any;
+        parentNode: { removeChild: (arg0: any) => void };
+      };
+    };
+  }) {
     // retrieve the name of the task we want to delete. We need
     // to convert it to a number before trying it use it with IDB; IDB key
     // values are type-sensitive.

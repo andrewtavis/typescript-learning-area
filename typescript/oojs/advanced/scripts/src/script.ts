@@ -1,13 +1,20 @@
-const input = document.querySelector("input");
-const btn = document.querySelector("button");
-const para = document.querySelector("p");
+const input = document.querySelector("input") as HTMLInputElement;
+const btn = document.querySelector("button") as HTMLButtonElement;
+const para = document.querySelector("p") as HTMLParagraphElement;
 
 btn.onclick = function () {
   const code = input.value;
   para.textContent = eval(code);
 };
 
-function Person(first, last, age, gender, interests) {
+function Person(
+  this: any,
+  first: string,
+  last: string,
+  age: number,
+  gender: string,
+  interests: string[]
+) {
   this.name = {
     first,
     last,
@@ -20,11 +27,11 @@ function Person(first, last, age, gender, interests) {
 Person.prototype.bio = function () {
   // First define a string, and make it equal to the part of
   // the bio that we know will always be the same.
-  let string =
+  let string: string =
     this.name.first + " " + this.name.last + " is " + this.age + " years old. ";
   // define a variable that will contain the pronoun part of
   // the second sentence
-  let pronoun;
+  let pronoun: string;
 
   // check what the value of gender is, and set pronoun
   // to an appropriate value in each case
@@ -87,7 +94,15 @@ let person1 = new Person("Tammi", "Smith", 17, "female", [
   "kickboxing",
 ]);
 
-function Teacher(first, last, age, gender, interests, subject) {
+function Teacher(
+  this: any,
+  first: string,
+  last: string,
+  age: number,
+  gender: string,
+  interests: string[],
+  subject: any
+) {
   Person.call(this, first, last, age, gender, interests);
 
   this.subject = subject;
@@ -102,7 +117,7 @@ Object.defineProperty(Teacher.prototype, "constructor", {
 });
 
 Teacher.prototype.greeting = function () {
-  let prefix;
+  let prefix: string;
 
   if (
     this.gender === "male" ||

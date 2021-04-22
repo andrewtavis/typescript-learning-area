@@ -138,13 +138,19 @@ window.onload = function (): void {
   };
 
   // Setup the database tables if this has not already been done
-  request.onupgradeneeded = function (e: IDBVersionChangeEvent) {
+  request.onupgradeneeded = function (e: Event) {
     // Grab a reference to the opened database
-    let db = e.target.result;
+    if (e.target === null) {
+      alert("Invalid");
+    } else {
+      let db = e.target.result;
+    }
 
     // Create an objectStore to store our notes in (basically like a single table)
     // including a auto-incrementing key
-    let objectStore = db.createObjectStore("videos", { keyPath: "name" });
+    let objectStore = db.createObjectStore("videos", {
+      keyPath: "name",
+    }) as IDBObjectStore;
 
     // Define what data items the objectStore will contain
     objectStore.createIndex("mp4", "mp4", { unique: false });

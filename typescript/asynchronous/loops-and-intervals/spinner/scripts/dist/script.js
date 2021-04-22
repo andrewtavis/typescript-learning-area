@@ -9,7 +9,12 @@ function draw(timestamp) {
     if (!startTime) {
         startTime = timestamp;
     }
-    rotateCount = (timestamp - startTime) / 3;
+    if (startTime === null) {
+        alert("Invalid");
+    }
+    else {
+        rotateCount = (timestamp - startTime) / 3;
+    }
     // If rotateCount gets over 359, set it to 'remainder of dividing by 360'
     if (rotateCount > 359) {
         rotateCount %= 360;

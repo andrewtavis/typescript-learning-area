@@ -23,12 +23,12 @@ request.onload = function () {
 request.send();
 
 // sets up the app logic, declares required variables, contains all the other functions
-function initialize(products) {
+function initialize(products: any[]) {
   // grab the UI elements that we need to manipulate
-  const category = document.querySelector("#category");
-  const searchTerm = document.querySelector("#searchTerm");
-  const searchBtn = document.querySelector("button");
-  const main = document.querySelector("main");
+  const category = <HTMLInputElement>document.querySelector("#category");
+  const searchTerm = <HTMLInputElement>document.querySelector("#searchTerm");
+  const searchBtn = document.querySelector("button") as HTMLButtonElement;
+  const main = document.querySelector("main") as HTMLElement;
 
   // keep a record of what the last category and search term entered were
   let lastCategory = category.value;
@@ -39,8 +39,8 @@ function initialize(products) {
   // finalGroup will contain the products that need to be displayed after
   // the searching has been done. Each will be an array containing objects.
   // Each object will represent a product
-  let categoryGroup;
-  let finalGroup;
+  let categoryGroup: any[];
+  let finalGroup: any[];
 
   // To start with, set finalGroup to equal the entire products database
   // then run updateDisplay(), so ALL products are displayed initially.
@@ -55,7 +55,7 @@ function initialize(products) {
   // a search running to select the category of products we want to display
   searchBtn.onclick = selectCategory;
 
-  function selectCategory(e) {
+  function selectCategory(e: { preventDefault: () => void }) {
     // Use preventDefault() to stop the form submitting — that would ruin
     // the experience
     e.preventDefault();
@@ -88,7 +88,7 @@ function initialize(products) {
         // the values in the <option> elements are uppercase, whereas the categories
         // store in the JSON (under "type") are lowercase. We therefore need to convert
         // to lower case before we do a comparison
-        let lowerCaseType = category.value.toLowerCase();
+        let lowerCaseType: string = category.value.toLowerCase();
         for (let i = 0; i < products.length; i++) {
           // If a product's type property is the same as the chosen category, we want to
           // display it, so we push it onto the categoryGroup array
@@ -114,7 +114,7 @@ function initialize(products) {
     } else {
       // Make sure the search term is converted to lower case before comparison. We've kept the
       // product names all lower case to keep things simple
-      let lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
+      let lowerCaseSearchTerm: string = searchTerm.value.trim().toLowerCase();
       // For each product in categoryGroup, see if the search term is contained inside the product name
       // (if the indexOf() result doesn't return -1, it means it is) — if it is, then push the product
       // onto the finalGroup array
@@ -152,9 +152,9 @@ function initialize(products) {
   // fetchBlob uses XHR to retrieve the image for that product, and then sends the
   // resulting image display URL and product object on to showProduct() to finally
   // display it
-  function fetchBlob(product) {
+  function fetchBlob(product: { image: string; name: string }) {
     // construct the URL path to the image file from the product.image property
-    let url = "images/" + product.image;
+    let url: string = "images/" + product.image;
     // Use XHR to fetch the image, as a blob
     // Again, if any errors occur we report them in the console.
     const request = new XMLHttpRequest();
@@ -166,7 +166,7 @@ function initialize(products) {
         // Convert the blob to an object URL — this is basically an temporary internal URL
         // that points to an object stored inside the browser
         let blob = request.response;
-        let objectURL = URL.createObjectURL(blob);
+        let objectURL: string = URL.createObjectURL(blob);
         // invoke showProduct
         showProduct(objectURL, product);
       } else {
@@ -185,7 +185,10 @@ function initialize(products) {
   }
 
   // Display a product inside the <main> element
-  function showProduct(objectURL, product) {
+  function showProduct(
+    objectURL: string,
+    product: { image?: string; name: any; type?: any; price?: any }
+  ) {
     // create <section>, <h2>, <p>, and <img> elements
     const section = document.createElement("section");
     const heading = document.createElement("h2");

@@ -1,7 +1,7 @@
-const header = document.querySelector("header");
-const section = document.querySelector("section");
+const header = document.querySelector("header") as HTMLElement;
+const section = document.querySelector("section") as HTMLElement;
 
-let requestURL =
+let requestURL: string =
   "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
 
 let request = new XMLHttpRequest();
@@ -16,7 +16,7 @@ request.onload = function () {
   showHeroes(superHeroes);
 };
 
-function populateHeader(obj: any) {
+function populateHeader(obj: { [x: string]: string }) {
   const myH1 = document.createElement("h1");
   myH1.textContent = obj["squadName"];
   if (header === null) {
@@ -35,16 +35,16 @@ function populateHeader(obj: any) {
   }
 }
 
-function showHeroes(obj: any) {
+function showHeroes(obj: { [x: string]: any }) {
   const heroes = obj["members"];
 
   for (let i = 0; i < heroes.length; i++) {
-    const myArticle = document.createElement("article");
-    const myH2 = document.createElement("h2");
-    const myPara1 = document.createElement("p");
-    const myPara2 = document.createElement("p");
-    const myPara3 = document.createElement("p");
-    const myList = document.createElement("ul");
+    const myArticle = document.createElement("article") as HTMLElement;
+    const myH2 = document.createElement("h2") as HTMLHeadingElement;
+    const myPara1 = document.createElement("p") as HTMLParagraphElement;
+    const myPara2 = document.createElement("p") as HTMLParagraphElement;
+    const myPara3 = document.createElement("p") as HTMLParagraphElement;
+    const myList = document.createElement("ul") as HTMLUListElement;
 
     myH2.textContent = heroes[i].name;
     myPara1.textContent = "Secret identity: " + heroes[i].secretIdentity;

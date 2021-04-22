@@ -1,7 +1,7 @@
-const spinner = document.querySelector("div");
-let rotateCount = 0;
-let rAF: any;
-let startTime: any = null;
+const spinner = document.querySelector("div") as HTMLDivElement;
+let rotateCount: number = 0;
+let rAF: number;
+let startTime: number | null = null;
 
 // Boolean variable to store state of spinner — true is spinning, false is not spinning
 let spinning = false;
@@ -11,7 +11,11 @@ function draw(timestamp: any) {
     startTime = timestamp;
   }
 
-  rotateCount = (timestamp - startTime) / 3;
+  if (startTime === null) {
+    alert("Invalid");
+  } else {
+    rotateCount = (timestamp - startTime) / 3;
+  }
 
   // If rotateCount gets over 359, set it to 'remainder of dividing by 360'
   if (rotateCount > 359) {
