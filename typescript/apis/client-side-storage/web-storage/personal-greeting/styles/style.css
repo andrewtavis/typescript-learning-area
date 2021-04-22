@@ -1,0 +1,40 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+main {
+  padding: 20px;
+}
+
+header,
+footer {
+  background: cyan;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+form {
+  font-size: 0.8rem;
+}
+
+.personal-greeting {
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */
