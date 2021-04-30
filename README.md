@@ -2,7 +2,7 @@
   <a href="https://github.com/andrewtavis/typescript-learning-area"><img src="https://raw.githubusercontent.com/andrewtavis/typescript-learning-area/main/resources/tsla_logo_transparent.png" width="780" height="175"></a>
 </div>
 
---------------------------------------
+---
 
 [![license](https://img.shields.io/github/license/andrewtavis/typescript-learning-area)](https://github.com/andrewtavis/typescript-learning-area/blob/main/LICENSE.txt)
 [![coc](https://img.shields.io/badge/coc-Contributor%20Covenant-ff69b4.svg)](https://github.com/andrewtavis/typescript-learning-area/blob/main/.github/CODE_OF_CONDUCT.md)
