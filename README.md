@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/andrewtavis/typescript-learning-area"><img src="https://raw.githubusercontent.com/andrewtavis/typescript-learning-area/main/resources/tsla_logo_transparent.png" width="780" height="175"></a>
+  <a href="https://github.com/andrewtavis/typescript-learning-area"><img src="https://raw.githubusercontent.com/andrewtavis/typescript-learning-area/main/.github/resources/logo/tsla_logo_transparent.png" width="780" height="175"></a>
 </div>
 
 ---
